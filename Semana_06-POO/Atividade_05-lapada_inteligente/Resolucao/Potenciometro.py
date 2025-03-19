@@ -1,3 +1,4 @@
+# Importa o conversor AD
 from ConversorAD import ConversorAD
 
 class Potenciometro(ConversorAD):
@@ -10,7 +11,7 @@ class Potenciometro(ConversorAD):
     def escalonar(self, min=0, max=1):
         return int(self.__mapear(self.valor(), 0, self._ADC_MAX, min, max))
     
+    # Convertendo para PWM
     def toPWM(self):
-        valorADC = self.getValor()
-        valorPWM = self.__mapear(valorADC, 0, self._ADC_MAX, 0, 1023)
-        return valorPWM
+        valor_pwm = self.escalonar(min=0, max=1023)
+        return valor_pwm
