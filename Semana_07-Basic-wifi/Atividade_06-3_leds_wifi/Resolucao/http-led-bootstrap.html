@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Controle 3 Led's</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.6/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $("#on-red").click(function(){
+          $.ajax({url: "/led_r/1", success: function(result){
+            $('#on-red').removeClass('btn-success').addClass('btn-default');
+            $('#off-red').removeClass('btn-default').addClass('btn-danger');
+          }});
+        });
+
+        $("#off-red").click(function(){
+          $.ajax({url: "/led_r/0", success: function(result){
+            $('#on-red').removeClass('btn-default').addClass('btn-success');
+            $('#off-red').removeClass('btn-danger').addClass('btn-default');
+          }});
+        });
+
+        $("#on-green").click(function(){
+          $.ajax({url: "/led_g/1", success: function(result){
+            $('#on-green').removeClass('btn-success').addClass('btn-default');
+            $('#off-green').removeClass('btn-default').addClass('btn-danger');
+          }});
+        });
+
+        $("#off-green").click(function(){
+          $.ajax({url: "/led_g/0", success: function(result){
+            $('#on-green').removeClass('btn-default').addClass('btn-success');
+            $('#off-green').removeClass('btn-danger').addClass('btn-default');
+          }});
+        });
+
+        $("#on-blue").click(function(){
+          $.ajax({url: "/led_b/1", success: function(result){
+            $('#on-blue').removeClass('btn-success').addClass('btn-default');
+            $('#off-blue').removeClass('btn-default').addClass('btn-danger');
+          }});
+        });
+
+        $("#off-blue").click(function(){
+          $.ajax({url: "/led_b/0", success: function(result){
+            $('#on-blue').removeClass('btn-default').addClass('btn-success');
+            $('#off-blue').removeClass('btn-danger').addClass('btn-default');
+          }});
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumbotron text-center">
+        <h1>
+          Controle do LED 
+          <span style="color: red;">R</span>
+          <span style="color: green;">G</span>
+          <span style="color: blue;">B</span>
+        </h1>
+      </div>
+      
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <h3>
+              Cor
+              <span style="color: red;">Vermelha</span>
+            </h3>
+            <div class="btn-group">
+              <button id="on-red" type="button" class="btn btn-success btn-lg">Acender</button><br><br>
+              <button id="off-red" type="button" class="btn btn-default btn-lg">Apagar</button>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <h3>
+              Cor
+              <span style="color: green;">Verde</span>
+            </h3>
+            <div class="btn-group">
+              <button id="on-green" type="button" class="btn btn-success btn-lg">Acender</button><br><br>
+              <button id="off-green" type="button" class="btn btn-default btn-lg">Apagar</button>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <h3>
+              Cor
+              <span style="color: blue;">Azul</span>
+            </h3>
+            <div class="btn-group">
+              <button id="on-blue" type="button" class="btn btn-success btn-lg">Acender</button><br><br>
+              <button id="off-blue" type="button" class="btn btn-default btn-lg">Apagar</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
